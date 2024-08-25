@@ -106,3 +106,5 @@ list1.pop();
 console.log(list1.contains(2));
 console.log(list1.find(2));
 console.log(list1.toString());
+
+module.exports = LinkedList;
