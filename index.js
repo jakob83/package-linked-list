@@ -1,27 +1,27 @@
 class Node {
-  constructor(value = null, next = null) {
+  constructor(value = null, next = null, key = 'value') {
     this.next = next;
-    this.value = value;
+    this[key] = value;
   }
 }
 
 class LinkedList {
   list = null;
 
-  append(value) {
+  append(value, key) {
     if (!this.list) {
-      this.list = new Node(value);
+      this.list = new Node(value, null, key);
       return;
     }
     let curr = this.list;
     while (curr.next) {
       curr = curr.next;
     }
-    curr.next = new Node(value);
+    curr.next = new Node(value, null, key);
     console.log(this.list);
   }
-  prepend(value) {
-    this.list = new Node(value, this.list);
+  prepend(value, key) {
+    this.list = new Node(value, this.list, key);
     console.log(this.list);
   }
   size() {
@@ -91,20 +91,5 @@ class LinkedList {
     return (string += 'null');
   }
 }
-
-let list1 = new LinkedList();
-
-list1.prepend('first');
-list1.append(1);
-list1.append(2);
-list1.append(3);
-console.log(list1.size());
-console.log(list1.tail());
-console.log(list1.head());
-console.log(list1.atIndex(2));
-list1.pop();
-console.log(list1.contains(2));
-console.log(list1.find(2));
-console.log(list1.toString());
 
 module.exports = LinkedList;
