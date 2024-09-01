@@ -89,4 +89,4 @@ class LinkedList {
     return (string += 'null');
   }
 }
-module.export = LinkedList;
+module.exports = LinkedList;
