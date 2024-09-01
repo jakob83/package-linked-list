@@ -1,30 +1,29 @@
 class Node {
-  constructor(value = null, next = null, key = 'value') {
+  constructor(key, value, next = null) {
     this.next = next;
-    this[key] = value;
+    this.value = value;
+    this.key = key;
   }
 }
 
 class LinkedList {
   list = null;
 
-  append(value, key) {
+  append(key, value) {
     if (!this.list) {
-      this.list = new Node(value, null, key);
+      this.list = new Node(key, value);
       return;
     }
     let curr = this.list;
     while (curr.next) {
       curr = curr.next;
     }
-    curr.next = new Node(value, null, key);
-    console.log(this.list);
+    curr.next = new Node(key, value);
   }
-  prepend(value, key) {
-    this.list = new Node(value, this.list, key);
-    console.log(this.list);
+  prepend(key, value) {
+    this.list = new Node(key, value, this.list);
   }
-  size() {
+  getSize() {
     let counter = 0;
     let curr = this.list;
     while (curr) {
@@ -57,7 +56,6 @@ class LinkedList {
       curr = curr.next;
     }
     curr.next = null;
-    console.log(this.list);
   }
   contains(v) {
     let curr = this.list;
@@ -92,4 +90,10 @@ class LinkedList {
   }
 }
 
-module.exports = LinkedList;
+let list = new LinkedList();
+list.append('Paul', 'Tuttle');
+list.append('Tsaga', 'Ploner');
+list.prepend('first', 'first-value');
+list.append('last', 'last-value');
+
+console.log(list.getSize(3));
