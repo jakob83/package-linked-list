@@ -89,11 +89,4 @@ class LinkedList {
     return (string += 'null');
   }
 }
-
-let list = new LinkedList();
-list.append('Paul', 'Tuttle');
-list.append('Tsaga', 'Ploner');
-list.prepend('first', 'first-value');
-list.append('last', 'last-value');
-
-console.log(list.getSize(3));
+module.export = LinkedList;
